@@ -14,7 +14,7 @@ import static java.lang.Math.abs;
 @Component
 public class Controller {
 
-    static int gcd(int[] vals) {
+    public int gcd(int[] vals) {
         // check input params are valid i.e. more than one val and does not contain a 0 value
         // if not valid throw an exception
         if (vals.length == 1) {
