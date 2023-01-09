@@ -1,0 +1,6 @@
+* Address ID: 1 is valid
+* Address ID: 2 is invalid due to:
+Must have at least one address line that is not blank or null
+* Address ID: 3 is invalid due to:
+Must have at least one address line that is not blank or null
+South African country requires a province
