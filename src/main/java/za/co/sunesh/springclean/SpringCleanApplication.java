@@ -16,7 +16,7 @@ public class SpringCleanApplication implements ApplicationRunner {
 
 	@Override
 	public void run(ApplicationArguments args) throws Exception {
-		System.out.println(controller.gcd(new int[]{-54,24}));
+		System.out.println(controller.highestCommonFactor(new int[]{-54,24}));
 		controller.printAllAddressesFromJsonFile();
 		controller.printAddressOfType("Business Address");
 		controller.validateJsonFileAddresses();

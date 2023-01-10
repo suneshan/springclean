@@ -14,7 +14,7 @@ import static java.lang.Math.abs;
 @Component
 public class Controller {
 
-    public int gcd(int[] numbers) {
+    public int highestCommonFactor(int[] numbers) {
         // check input params are valid i.e. more than one val and does not contain a 0 value
         // if not valid throw an exception
         if (numbers.length == 1) {
@@ -31,12 +31,12 @@ public class Controller {
         if (modVal == 0) {
             if(numbers.length-1 > 1) {
                 // remove the processed number and repeat for remaining numbers
-                return gcd(IntStream.range(0, numbers.length) .filter(i -> i != 1).map(i -> numbers[i]).toArray());
+                return highestCommonFactor(IntStream.range(0, numbers.length) .filter(i -> i != 1).map(i -> numbers[i]).toArray());
             }
             return numbers[0];
         }
         numbers[1] = modVal;
-        return gcd(numbers);
+        return highestCommonFactor(numbers);
     }
 
     public String prettyPrintAddress(Address address) {

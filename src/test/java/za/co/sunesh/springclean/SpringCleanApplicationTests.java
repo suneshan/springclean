@@ -33,19 +33,19 @@ class SpringCleanApplicationTests {
 
 	@Test
 	public void testGcdSuccessResponses() {
-		assertEquals(6, controller.gcd(new int[]{-54,24}));
-		assertEquals(6, controller.gcd(new int[]{54,-24}));
-		assertEquals(6, controller.gcd(new int[]{-54,-24}));
-		assertEquals(6, controller.gcd(new int[]{54,24}));
-		assertEquals(5, controller.gcd(new int[]{30,15,10}));
-		assertEquals(20, controller.gcd(new int[]{120,80,60,40}));
-		assertEquals(20, controller.gcd(new int[]{120,80,-60,40}));
+		assertEquals(6, controller.highestCommonFactor(new int[]{-54,24}));
+		assertEquals(6, controller.highestCommonFactor(new int[]{54,-24}));
+		assertEquals(6, controller.highestCommonFactor(new int[]{-54,-24}));
+		assertEquals(6, controller.highestCommonFactor(new int[]{54,24}));
+		assertEquals(5, controller.highestCommonFactor(new int[]{30,15,10}));
+		assertEquals(20, controller.highestCommonFactor(new int[]{120,80,60,40}));
+		assertEquals(20, controller.highestCommonFactor(new int[]{120,80,-60,40}));
 	}
 
 	@Test
 	public void testGcdRuntimeException_whenOneValueIsProvided() {
 		Exception exception = assertThrows(RuntimeException.class, () -> {
-			controller.gcd(new int[]{10});
+			controller.highestCommonFactor(new int[]{10});
 		});
 
 		assertEquals("Enter 2 or more non-zero integer numbers",exception.getMessage());
@@ -54,7 +54,7 @@ class SpringCleanApplicationTests {
 	@Test
 	public void testGcdRuntimeException_whenZeroIsProvided() {
 		Exception exception = assertThrows(RuntimeException.class, () -> {
-			controller.gcd(new int[]{11, 0});
+			controller.highestCommonFactor(new int[]{11, 0});
 		});
 
 		assertEquals("Values must be non-zero and between -2147483648 and 2147483647",exception.getMessage());
