@@ -14,29 +14,29 @@ import static java.lang.Math.abs;
 @Component
 public class Controller {
 
-    public int gcd(int[] vals) {
+    public int gcd(int[] numbers) {
         // check input params are valid i.e. more than one val and does not contain a 0 value
         // if not valid throw an exception
-        if (vals.length == 1) {
+        if (numbers.length == 1) {
             throw new RuntimeException("Enter 2 or more non-zero integer numbers");
-        } else if(Arrays.stream(vals).anyMatch(val->val==0)) {
+        } else if(Arrays.stream(numbers).anyMatch(number->number==0)) {
             throw new RuntimeException("Values must be non-zero and between -2147483648 and 2147483647");
         }
 
         // apply euclidean algorithm
-        int tmp = vals[0];
-        vals[0] = abs(vals[1]);
-        int modVal = tmp % vals[1];
+        int tmp = numbers[0];
+        numbers[0] = abs(numbers[1]);
+        int modVal = tmp % numbers[1];
         // end recursive loop when the mod of two number return 0 and there are no further numbers in the array
         if (modVal == 0) {
-            if(vals.length-1 > 1) {
+            if(numbers.length-1 > 1) {
                 // remove the processed number and repeat for remaining numbers
-                return gcd(IntStream.range(0, vals.length) .filter(i -> i != 1).map(i -> vals[i]).toArray());
+                return gcd(IntStream.range(0, numbers.length) .filter(i -> i != 1).map(i -> numbers[i]).toArray());
             }
-            return vals[0];
+            return numbers[0];
         }
-        vals[1] = modVal;
-        return gcd(vals);
+        numbers[1] = modVal;
+        return gcd(numbers);
     }
 
     public String prettyPrintAddress(Address address) {
